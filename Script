@@ -1,0 +1,86 @@
+# Importing the Bluetooth Socket library
+import bluetooth
+# Importing the GPIO library to use the GPIO pins of Raspberry pi
+import RPi.GPIO as GPIO
+
+led_pine = 20
+led_pin = 21    # Initializing pin 40 for led
+GPIO.setmode(GPIO.BCM)  # Using BCM numbering
+GPIO.setup(led_pine, GPIO.OUT)
+GPIO.setup(led_pin, GPIO.OUT)   # Declaring the pin 40 as output pin
+
+host = ""
+port = 0    # Raspberry Pi uses port 1 for Bluetooth Communication
+
+servererstellt()
+#wenn bluetoth verbidnung ertsellt ist schleife bis die verbidnugn abgebrochen ist
+#solange die Bluetooth verbindung erstellt ist dann wird code ausgegeben, wenn bluettoth beendet ist dann schlieÃŸe das script
+
+if servererstellt: 
+	script ()
+elif :
+	serverbeendet()
+def script():
+try:
+    while True:
+        # Receivng the data.
+        data = client.recv(1024) # 1024 is the buffer size.
+        print(data)
+
+        if (data == "1"):
+           GPIO.output(led_pin, True)
+           send_data = "Pumpe ein"
+        elif (data == "0"):
+            GPIO.output(led_pin, False)
+            send_data = ("Pumpe aus")
+        elif (data == "3"):
+            GPIO.output(led_pine, True)
+            send_data = "Pumpe ein"
+        elif (data == "2"):
+            GPIO.output(led_pine, False)
+            send_data = "Pumpe aus "
+        else:
+            send_data = "Type 1 or 0 or 3 or 2"
+
+        # Sending the data.
+        client.send(send_data)
+
+
+
+
+   
+serverbeendet()
+
+
+def servererstellt ():
+	# Creaitng Socket Bluetooth RFCOMM communication
+	server = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+	print('Bluetooth Socket erstellt')
+
+try:
+  	server.bind((host, port))
+    	print("Bluetooth Verbidnung erfolreich")
+except:
+        print("Bluetooth Verbidnung fehlgeschlagen")
+
+        server.listen(1) # One connection at a time
+	# Server accepts the clients request and assigns a mac address.
+	client, address = server.accept()
+	print("Connected To", address)
+	print("Client:", client)
+
+
+def serverbeendet ():
+
+except:
+	try:
+	    while True: 
+			
+    			# Making all the output pins LOW
+  				 GPIO.cleanup()
+    			# Closing the client and server connection
+ 	  	client.close()
+   			server.close()
+
+
+	
